@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarder Junaid Ahmed - Data Scientist Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .profile-info h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-info .title {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            text-decoration: none;
+            padding: 8px 15px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .objective {
+            font-size: 1.1em;
+            text-align: center;
+            color: #555;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: rgba(102, 126, 234, 0.2);
+            color: #2c3e50;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(102, 126, 234, 0.3);
+            transform: scale(1.05);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 5px;
+        }
+
+        .project-year {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .project-type {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .project-accuracy {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .project-features {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .project-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            color: #555;
+        }
+
+        .project-features li:last-child {
+            border-bottom: none;
+        }
+
+        .project-features li::before {
+            content: '▶';
+            color: #667eea;
+            margin-right: 10px;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .education-item h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+        }
+
+        .education-year {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        .research-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .research-item h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .research-status {
+            background: rgba(255, 193, 7, 0.2);
+            color: #856404;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .research-highlights {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .research-highlights li {
+            padding: 5px 0;
+            color: #555;
+        }
+
+        .research-highlights li::before {
+            content: '📊';
+            margin-right: 10px;
+        }
+
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .competency-item {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 15px 20px;
+            border-radius: 25px;
+            text-align: center;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .competency-item:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: scale(1.05);
+        }
+
+        .languages {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .language-item {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            min-width: 200px;
+        }
+
+        .language-item h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .cv-download {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-info h1 {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .education-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .project-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .notification {
+            background: rgba(255, 193, 7, 0.2);
+            color: #856404;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-section">
+                <div class="profile-img">
+                    SJA
+                </div>
+                <div class="profile-info">
+                    <h1>Sarder Junaid Ahmed</h1>
+                    <div class="title">Data Scientist & ML Engineer</div>
+                    <div class="contact-info">
+                        <a href="tel:+8801718200525" class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            +880 171 820 0525
+                        </a>
+                        <a href="mailto:junaidahmedrupok@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            junaidahmedrupok@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/junaid-ahmed-rupok-059b68240/" class="contact-item" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <span class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Mirpur, Dhaka, Bangladesh
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2><i class="fas fa-bullseye"></i> Career Objective</h2>
+            <div class="objective">
+                Computer Science graduate with expertise in machine learning algorithms, advanced statistical testing, and data analysis. Proficient in implementing parametric/non-parametric tests, hypothesis testing, and ML model development. Seeking to contribute to AI/ML projects with strong technical skills in Python, statistical validation, and research methodology.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-cogs"></i> Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> ML Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">XGBoost</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-calculator"></i> Mathematics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Calculus</span>
+                        <span class="skill-tag">Probability</span>
+                        <span class="skill-tag">Statistics</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-book-open"></i> Python Libraries</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">SciPy</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">OS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Development Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">PyCharm</span>
+                        <span class="skill-tag">Google Colab</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Statistical Analysis</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Mann-Whitney U</span>
+                        <span class="skill-tag">Kolmogorov-Smirnov</span>
+                        <span class="skill-tag">Shapiro-Wilk</span>
+                        <span class="skill-tag">Levene's Test</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-project-diagram"></i> Machine Learning Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>Human Development Index Prediction</h3>
+                            <div class="project-type">Regression Analysis</div>
+                        </div>
+                        <div class="project-year">2025</div>
+                    </div>
+                    <div class="project-accuracy">85% Accuracy</div>
+                    <ul class="project-features">
+                        <li>Created end-to-end ML pipeline for HDI prediction with Flask API deployment</li>
+                        <li>Achieved 15% improvement in prediction accuracy compared to baseline models</li>
+                        <li>Enables policy makers to forecast development outcomes for strategic planning</li>
+                    </ul>
+                    <a href="https://github.com/Junaid-Ahmed-Rupok?tab=repositories" class="contact-item" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>Government Type Classification</h3>
+                            <div class="project-type">ML Classification</div>
+                        </div>
+                        <div class="project-year">2025</div>
+                    </div>
+                    <div class="project-accuracy">84% Accuracy</div>
+                    <ul class="project-features">
+                        <li>Developed comprehensive ML pipeline for government type prediction with Flask API</li>
+                        <li>Provides 12% higher accuracy in political regime classification than traditional methods</li>
+                        <li>Supports comparative governance research and political stability analysis</li>
+                    </ul>
+                    <a href="https://github.com/Junaid-Ahmed-Rupok?tab=repositories" class="contact-item" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>COVID-19 Vaccine Prediction</h3>
+                            <div class="project-type">Healthcare Analytics</div>
+                        </div>
+                        <div class="project-year">2025</div>
+                    </div>
+                    <ul class="project-features">
+                        <li>Built predictive ML pipeline for vaccine distribution patterns with Flask API integration</li>
+                        <li>Improved vaccination planning efficiency by 20% through data-driven insights</li>
+                        <li>Assists public health authorities in optimizing vaccine allocation strategies</li>
+                    </ul>
+                    <a href="https://github.com/Junaid-Ahmed-Rupok?tab=repositories" class="contact-item" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
+                        <h3>Bachelor of Science in Computer Science and Engineering</h3>
+                        <p style="color: #666; margin-top: 5px;">Rajshahi University of Engineering and Technology (RUET)</p>
+                        <p style="color: #666;">Rajshahi, Bangladesh</p>
+                    </div>
+                    <div class="education-year">2019–2025</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-flask"></i> Research Publications</h2>
+            
+            <div class="research-item">
+                <div class="research-status">Under Review</div>
+                <h3>"Algorithmic Statistical Testing for Regime Comparison: Applications in Political Data Science"</h3>
+                <p style="color: #666; margin-bottom: 15px;">SJ Ahmed (2025)</p>
+                <ul class="research-highlights">
+                    <li>Developed statistical framework analyzing 35 governance indicators across 15,000 observations</li>
+                    <li>Applied Mann-Whitney U, Welch's t-test, Kolmogorov-Smirnov, Shapiro-Wilk, and Levene's tests</li>
+                    <li>Identified statistically significant changes in 9 parameters with 88.9% performance differential</li>
+                </ul>
+            </div>
+
+            <div class="research-item">
+                <div class="research-status">Under Review</div>
+                <h3>"Machine Learning Analysis of Political Regime Classification: A Comprehensive Comparative Study"</h3>
+                <p style="color: #666; margin-bottom: 15px;">SJ Ahmed, MHR Kwoshik (2025)</p>
+                <ul class="research-highlights">
+                    <li>Evaluated 5 ML algorithms achieving 94.27% accuracy with Lasso Logistic Regression</li>
+                    <li>Demonstrated 18% improvement in political regime prediction over conventional methods</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-star"></i> Core Competencies</h2>
+            <div class="competencies-grid">
+                <div class="competency-item">Statistical Analysis</div>
+                <div class="competency-item">Machine Learning</div>
+                <div class="competency-item">Hypothesis Testing</div>
+                <div class="competency-item">Data Preprocessing</div>
+                <div class="competency-item">Python Programming</div>
+                <div class="competency-item">Research Methodology</div>
+                <div class="competency-item">Model Development</div>
+                <div class="competency-item">Academic Writing</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-language"></i> Languages</h2>
+            <div class="languages">
+                <div class="language-item">
+                    <h3>Bengali</h3>
+                    <p style="color: #666;">Native</p>
+                    <p style="color: #888; font-size: 0.9em;">Mother tongue</p>
+                </div>
+                <div class="language-item">
+                    <h3>English</h3>
+                    <p style="color: #666;">Fluent</p>
+                    <p style="color: #888; font-size: 0.9em;">Excellent technical and professional communication</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cv-download">
+            <a href="./Sarder_Junaid_Ahmed_Data_Scientist_CV.pdf" class="download-btn" download="Sarder_Junaid_Ahmed_Data_Scientist_CV.pdf">
+                <i class="fas fa-download"></i>
+                Download CV (PDF)
+            </a>
+            <div class="notification" id="downloadMessage" style="display: none;">
+                Make sure the PDF file is in the same folder as this HTML file for the download to work properly.
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Sarder Junaid Ahmed. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add typing effect to the title
+        const title = document.querySelector('.profile-info h1');
+        const titleText = title.textContent;
+        title.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < titleText.length) {
+                title.textContent += titleText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        setTimeout(typeWriter, 1000);
+    </script>
+</body>
+</html>
